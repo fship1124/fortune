@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml"
+      layout:decorator="layouts/layout_luck">
+<body>
+<div layout:fragment="wrap" id="wrap">
+    <div>
+        <h1>입력 양식</h1>
+        <span>이름</span> : <input type="text" name="name" value="김서방"/>
+        <br />
+
+        <span>성별</span> :
+        <input name="sex" type="radio" value="1" id="man" checked />
+        <label for="man">남성</label>
+        <input name="sex" type="radio" value="2" id="woman" />
+        <label for="woman">여성</label>
+        <br />
+
+        <input name="calendarType" type="radio" value="1" id="solor" checked />
+        <label for="solor">양력</label>
+        <input name="calendarType" type="radio" value="2" id="lunar" />
+        <label for="lunar">음력</label>
+        <input name="calendarType" type="radio" value="3" id="leap" />
+        <label for="leap">윤달</label>
+        <br />
+
+        <span>생년월일</span> : <input type="date" name="birthday"/><br />
+        <span>시간</span> : <input type="time" name="time"/><br />
+
+        <input type="submit" id="submit1" value="만세력 출력"/>
+
+        <div>
+            <label class="" id="sex"></label>
+            <label>명</label>
+            <label id="name"></label>
+
+            <div id="saju"></div>
+
+            <table>
+                <tr>
+                    <th>時</th><th>日</th><th>月</th><th>年</th>
+                </tr>
+                <tr>
+                    <td id="kan_hour"></td>
+                    <td id="kan_date"></td>
+                    <td id="kan_month"></td>
+                    <td id="kan_year"></td>
+                </tr>
+                <tr>
+                    <td id="zhi_hour"></td>
+                    <td id="zhi_date"></td>
+                    <td id="zhi_month"></td>
+                    <td id="zhi_year"></td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div id="daeun"></div>
+
+    </div>
+
+<script>
+   $('#submit1').click(function() {
+        event.preventDefault();
+        console.dir(this);
+
+        let name = $("input[name=name]").val();
+            let sex = $("input[name=sex]").val();
+            let birthday = $("input[name=birthday]").val();
+            let time = $("input[name=time]").val();
+            let calendarType = $("input[name=calendarType]").val();
+
+        if (name && sex && birthday && time && calendarType) {
+            console.log("tt");
+
+                        let sex_name = (sex == '1') ? '乾' : '坤';
+            $("#sex").html(sex_name);
+            $("#name").html(name);
+
+            startMyungsig(birthday, time);
+            $("#myungsig").show();
+
+
+            return true;
+        } else {
+            alert("양식에 맞게 입력하세요.");
+            return false;
+        }
+    })
+</script>
+
+</div>
+</body>
+</html>

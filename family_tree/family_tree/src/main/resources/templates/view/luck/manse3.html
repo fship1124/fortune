@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml"
+      layout:decorator="layouts/layout_luck">
+<body onload="input_start()">
+<div layout:fragment="wrap" id="wrap">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    <h2 align=center><font size="2" color="#0000FF"> 음력과 양력을 서로 바꾸기(1900-2105)</font></h2>
+
+    <table align=center bgcolor=#000000>
+        <form name="frm_nal">
+            <tr>
+                <td bgcolor="#C0C0C0">
+                    <input type=radio name="rad_gubun" value="um">음력
+                    <input type=radio name="rad_gubun" value="yang">양력
+                    <br>
+                    <br>
+                    <select name="sel_year">
+                        <option value=0>190<option value=1>191<option value=2>192<option value=3>193
+                        <option value=4>194<option value=5>195<option value=6>196<option value=7>197
+                        <option value=8>198<option value=9>199<option value=10>200<option value=11>201
+                        <option value=12>202<option value=13>203
+                        <option value=14>204<option value=15>205<option value=16>206<option value=17>207
+                        <option value=18>208<option value=19>209<option value=20>210
+                    </select>
+                    <select name="sel_syear">
+                        <option value=0>0<option value=1>1<option value=2>2<option value=3>3
+                        <option value=4>4<option value=5>5<option value=6>6<option value=7>7
+                        <option value=8>8<option value=9>9
+                    </select>년
+                    <br>
+                    <select name="sel_month">
+                        <option value=1>1<option value=2>2<option value=3>3<option value=4>4
+                        <option value=5>5<option value=6>6<option value=7>7<option value=8>8
+                        <option value=9>9<option value=10>10<option value=11>11<option value=12>
+                        12
+                    </select>월
+                    <input type=checkbox name="chk_yun">윤달<br>
+                    <select name="sel_day">
+                        <option value=1>1<option value=2>2<option value=3>3<option value=4>4
+                        <option value=5>5<option value=6>6<option value=7>7<option value=8>8
+                        <option value=9>9<option value=10>10<option value=11>11<option value=12>
+                        12
+                        <option value=13>13<option value=14>14<option value=15>15<option value=16>16
+                        <option value=17>17<option value=18>18<option value=19>19<option value=20>20
+                        <option value=21>21<option value=22>22<option value=23>23<option value=24>24
+                        <option value=25>25<option value=26>26<option value=27>27<option value=28>28
+                        <option value=29>29<option value=30>30<option value=31>31
+                    </select>일
+
+                <td width=33 bgcolor="#C0C0C0"></td>
+                <td bgcolor="#C0C0C0">
+                    <input type=button value="양력 <=> 음력" onclick="daydeal_click()">
+                    <br>
+                    <br>
+                    양력<input type=text size=17 name="txt_yang" onfocus="document.frm_nal.txt_yang.blur()"><br>
+                    음력<input type=text size=17 name="txt_um">
+                    <input type=hidden name="hid_yun">
+                </td>
+            </tr>
+        </form>
+    </table>
+
+</div>
+</body>
+</html>
